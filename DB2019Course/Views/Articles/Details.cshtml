@@ -1,0 +1,98 @@
+﻿@model DB2019Course.Models.Article
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>О статье</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Work.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.AuthorPass)
+        </dt>
+
+        <dd>
+            @Html.ActionLink((string)ViewBag.Name, "Details", "Aspirants", new { id = Model.Work.AuthorPass })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Journal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.UDC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.UDC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Issue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoauthorPass)
+        </dt>
+
+        <dd>
+                @if (Model.CoauthorPass.HasValue)
+                {
+                    string s = Model.Leader.Name + " " + Model.Leader.Surname + " " + Model.Leader.Lastname;
+                    @Html.ActionLink(s, "Details", "Leaders", new { id = Model.CoauthorPass }, null);
+                }
+                else
+                {
+                    string s = "Нет";
+                    @s
+                }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id, authore = Model.AuthorPass }) |
+    @Html.ActionLink("К списку публикаций", "Index", new {id = Model.AuthorPass })
+</p>

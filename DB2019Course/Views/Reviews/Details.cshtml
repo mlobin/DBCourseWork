@@ -1,0 +1,40 @@
+﻿@model DB2019Course.Models.Review
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewAuthor)
+        </dt>
+
+        <dd>
+            @Html.ActionLink((string)ViewBag.Name, "Details", "Aspirants", new { id = Model.AuthorPass })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disser.Work.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disser.Work.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { author = Model.AuthorPass, id = Model.Id }) |
+    @Html.ActionLink("К отзывам", "Index", new { id = Model.AuthorPass })
+</p>

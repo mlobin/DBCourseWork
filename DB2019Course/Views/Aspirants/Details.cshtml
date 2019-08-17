@@ -1,0 +1,73 @@
+﻿@model DB2019Course.Models.Aspirant
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <h4>
+        @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.SurName) @Html.DisplayFor(model => model.LastName)
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.LabelFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.JoinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinDate)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.OutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutDate)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Group.Faculty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.Faculty)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.GroupId)
+        </dt>
+        <dd>
+            @Html.ActionLink(Model.Group.Name, "Details", "Groups", new { id = Model.GroupId }, null);
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Pass }) |
+    @Html.ActionLink("К списку аспирантов", "Index", new { id = Model.GroupId })|
+    @Html.ActionLink("Статьи", "Index", "Articles", new { id = Model.Pass }, null)|
+    @Html.ActionLink("Диссертация", "Index", "Dissers", new { id = Model.Pass }, null)|
+    @Html.ActionLink("Руководители", "Aspi", "Leaders", new { id = Model.Pass }, null)|
+    @Html.ActionLink("Индивидуальный план", "Index", "IndPlans", new { id = Model.Pass }, null)|
+    @Html.ActionLink("Результаты экзаменов", "Index", "Results", new {id = Model.Pass }, null)
+</p>

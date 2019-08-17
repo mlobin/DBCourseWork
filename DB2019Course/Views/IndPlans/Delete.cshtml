@@ -1,0 +1,73 @@
+﻿@model DB2019Course.Models.IndPlan
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Delete</h2>
+
+<h3>Удалить элемент индивидуального плана?</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.WorkName)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoneMarker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoneMarker)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Readiness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Readiness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aspirant.Name)
+        </dt>
+
+        <dd>
+            @ViewBag.Aspirant
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class=".btn .btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = Model.AspirantId})
+        </div>
+    }
+</div>

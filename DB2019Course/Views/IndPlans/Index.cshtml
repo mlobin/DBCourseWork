@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DB2019Course.Models.IndPlan>
+
+@{
+    ViewBag.Title = "Индивидуальный план";
+}
+
+<h2>Индивидуальный план, аспирант - @ViewBag.Aspirant</h2>
+
+<p>
+    @Html.ActionLink("Добавить элемент", "Create", new { id = ViewBag.AspirantId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <b>Аспирант</b>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoneMarker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Readiness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink((string)@ViewBag.Aspirant, "Details", "Aspirants", new { id = (int)ViewBag.AspirantId }, null);
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoneMarker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Readiness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.Id, author = item.AspirantId }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id, author = item.AspirantId })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("К аспиранту", "Details", "Aspirants", new { id = ViewBag.AspirantId },null)

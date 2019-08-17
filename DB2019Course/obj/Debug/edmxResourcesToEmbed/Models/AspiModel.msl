@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="Model.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AuthorPass" ColumnName="AuthorPass" />
+          <ScalarProperty Name="Journal" ColumnName="Journal" />
+          <ScalarProperty Name="Issue" ColumnName="Issue" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="CoauthorPass" ColumnName="CoauthorPass" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aspirant">
+      <EntityTypeMapping TypeName="Model.Aspirant">
+        <MappingFragment StoreEntitySet="Aspirant">
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auth">
+      <EntityTypeMapping TypeName="Model.Auth">
+        <MappingFragment StoreEntitySet="Auth">
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Defence">
+      <EntityTypeMapping TypeName="Model.Defence">
+        <MappingFragment StoreEntitySet="Defence">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="AuthorPass" ColumnName="AuthorPass" />
+          <ScalarProperty Name="DisserId" ColumnName="DisserId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Opponent" ColumnName="Opponent" />
+          <ScalarProperty Name="Opponent2" ColumnName="Opponent2" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Organisation" ColumnName="Organisation" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="Auditory" ColumnName="Auditory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disser">
+      <EntityTypeMapping TypeName="Model.Disser">
+        <MappingFragment StoreEntitySet="Disser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AuthorPass" ColumnName="AuthorPass" />
+          <ScalarProperty Name="Nomenclature" ColumnName="Nomenclature" />
+          <ScalarProperty Name="Readiness" ColumnName="Readiness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exam">
+      <EntityTypeMapping TypeName="Model.Exam">
+        <MappingFragment StoreEntitySet="Exam">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Auditory" ColumnName="Auditory" />
+          <ScalarProperty Name="Corp" ColumnName="Corp" />
+          <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="Model.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="Stage" ColumnName="Stage" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndPlan">
+      <EntityTypeMapping TypeName="Model.IndPlan">
+        <MappingFragment StoreEntitySet="IndPlan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AspirantId" ColumnName="AspirantId" />
+          <ScalarProperty Name="WorkName" ColumnName="WorkName" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="DoneMarker" ColumnName="DoneMarker" />
+          <ScalarProperty Name="Readiness" ColumnName="Readiness" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leader">
+      <EntityTypeMapping TypeName="Model.Leader">
+        <MappingFragment StoreEntitySet="Leader">
+          <ScalarProperty Name="PassId" ColumnName="PassId" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Result">
+      <EntityTypeMapping TypeName="Model.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="PassId" ColumnName="PassId" />
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="Result1" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Review">
+      <EntityTypeMapping TypeName="Model.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DisserId" ColumnName="DisserId" />
+          <ScalarProperty Name="AuthorPass" ColumnName="AuthorPass" />
+          <ScalarProperty Name="ReviewAuthor" ColumnName="ReviewAuthor" />
+          <ScalarProperty Name="Organisation" ColumnName="Organisation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voting">
+      <EntityTypeMapping TypeName="Model.Voting">
+        <MappingFragment StoreEntitySet="Voting">
+          <ScalarProperty Name="VoteNumber" ColumnName="VoteNumber" />
+          <ScalarProperty Name="Members" ColumnName="Members" />
+          <ScalarProperty Name="Arrived" ColumnName="Arrived" />
+          <ScalarProperty Name="Pro" ColumnName="Pro" />
+          <ScalarProperty Name="Contra" ColumnName="Contra" />
+          <ScalarProperty Name="Not_Voted" ColumnName="Not Voted" />
+          <ScalarProperty Name="DisserId" ColumnName="DisserId" />
+          <ScalarProperty Name="AuthorPass" ColumnName="AuthorPass" />
+          <ScalarProperty Name="DefenceId" ColumnName="DefenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Work">
+      <EntityTypeMapping TypeName="Model.Work">
+        <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AuthorPass" ColumnName="AuthorPass" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="UDC" ColumnName="UDC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Table" TypeName="Model.Table" StoreEntitySet="Table">
+      <EndProperty Name="Aspirant">
+        <ScalarProperty Name="PassId" ColumnName="AspirantId" />
+      </EndProperty>
+      <EndProperty Name="Leader">
+        <ScalarProperty Name="PassId" ColumnName="LeaderId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="JoinNames" FunctionName="Хранилище Model.JoinNames" />
+    <AssociationSetMapping Name="Table1" TypeName="Model.Table1" StoreEntitySet="Table">
+      <EndProperty Name="Leader">
+        <ScalarProperty Name="PassId" ColumnName="LeaderId" />
+      </EndProperty>
+      <EndProperty Name="Aspirant">
+        <ScalarProperty Name="Pass" ColumnName="AspirantId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

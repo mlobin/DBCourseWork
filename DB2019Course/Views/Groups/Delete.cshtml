@@ -1,0 +1,43 @@
+﻿@model DB2019Course.Models.Group
+@{
+    ViewBag.Title = "Удаление";
+}
+<h2>Удаление</h2>
+<h3>Вы уверены, что хотите удалить эту группу?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Факультет:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Faculty)
+        </dd>
+        <dt>
+            Курс:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stage)
+        </dd>
+        <dt>
+            Название:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Направление:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Specialty)
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class=".btn .btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

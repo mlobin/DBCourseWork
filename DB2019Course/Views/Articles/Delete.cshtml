@@ -1,0 +1,108 @@
+﻿@model DB2019Course.Models.Article
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Удалить статью?</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.Work.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.AuthorPass)
+        </dt>
+
+        <dd>
+            @Html.ActionLink((string)ViewBag.Name, "Details", "Aspirants")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Journal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.UDC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.UDC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Issue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoauthorPass)
+        </dt>
+
+        <dd>
+            
+                @if (Model.CoauthorPass.HasValue)
+                {
+                    string s = Model.Leader.Name + " " + Model.Leader.Surname + " " + Model.Leader.Lastname;
+                    @Html.ActionLink(s, "Details", "Leaders", new { id = Model.CoauthorPass }, null);
+                }
+                else
+                {
+                    string s = "Нет";
+                    @s
+                }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class=".btn .btn-default" /> |
+            @Html.ActionLink("Назад к списку", "Index", new {id = Model.AuthorPass })
+        </div>
+    }
+</div>

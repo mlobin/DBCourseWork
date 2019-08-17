@@ -1,0 +1,37 @@
+﻿@model DB2019Course.Models.Group
+@{
+    ViewBag.Title = "Удаление невозможно";
+}
+<h3>Нельзя удалить группу</h3>
+<div>
+    <h4>Невозможно удалить группу, в которой состоят аспиранты!</h4>
+    <h5>@Html.ActionLink("Аспиранты", "Index", "Aspirants", new { id = Model.Id }, null)</h5>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Факультет:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Faculty)
+        </dd>
+        <dt>
+            Курс:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stage)
+        </dd>
+        <dt>
+            Название:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Направление:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Specialty)
+        </dd>
+    </dl>
+            @Html.ActionLink("К списку", "Index")    
+</div>

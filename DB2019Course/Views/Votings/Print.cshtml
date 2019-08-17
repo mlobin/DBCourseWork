@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Протокол</title>
+</head>
+<body>
+    <div>
+        <div style="text-align:center"><b>Протокол</b></div>
+        <div style="text-align:center">заседания диссертационного совета @ViewBag.Num</div>
+        <div style="text-align:center">от @ViewBag.Date</div>
+        <div style="text-align:left">@ViewBag.Ability @ViewBag.Arr</div>
+        <b>Слушали:</b>
+        <div>Защиту диссертации на соискание ученой степени кандидата наук, автор: @ViewBag.Author @ViewBag.Theme.</div>
+        <div>@ViewBag.Leader</div>
+        <div><b>Официальные оппоненты по диссертации: </b>@ViewBag.Opponents</div>
+        <div>@ViewBag.Reviews</div>
+        <div><b>Постановили</b></div>
+        1. На основании результатов тайного голосования членов диссертационного совета (@ViewBag.ResultCnt) считать, что диссертация @ViewBag.Result соответствует требованиям Высшей Аттестационной Комиссии, предъявляемым диссертациям на соискание ученой степени кандидата наук, а её автор @ViewBag.Author @ViewBag.Result заслуживает присвоения ученой степени кандидата наук по специальности @ViewBag.Nomenclature.
+    </div>
+</body>
+</html>

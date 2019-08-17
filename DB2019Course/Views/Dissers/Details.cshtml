@@ -1,0 +1,61 @@
+﻿@model DB2019Course.Models.Disser
+
+@{
+    ViewBag.Title = "О диссертации";
+}
+
+<h2>О диссертации</h2>
+
+<div>
+    <h4>
+        @Html.DisplayFor(model => model.Work.Name)
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.AuthorPass)
+        </dt>
+
+        <dd>
+            @Html.ActionLink((string)ViewBag.Name, "Details", "Aspirants", new { id = Model.Work.AuthorPass }, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nomenclature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nomenclature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Readiness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Readiness)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.AuthorPass }) |
+    @Html.ActionLink("Отзывы", "Index", "Reviews", new { id = Model.AuthorPass }, null) |
+    @Html.ActionLink("Защиты", "Index","Defences", new { id = Model.AuthorPass }, null) |
+    @Html.ActionLink("К аспиранту", "Details", "Aspirants", new { id = Model.AuthorPass }, null)
+</p>

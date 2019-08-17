@@ -1,0 +1,39 @@
+﻿@model DB2019Course.Models.Leader
+
+@{
+    ViewBag.Title = "Добавить ";
+}
+
+<h2>Добавить руководителя</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Руководители</h4>
+    <hr />
+    @Html.Hidden("AspiId", (int)ViewBag.AspiId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Name", (IEnumerable<SelectListItem>)ViewBag.Id, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Выбрать" class=".btn .btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("К аспиранту", "Details", "Aspirant", new {id = ViewBag.AspiId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-fixed-top mb-4" style="background-color:darkslategrey">
+
+
+        <div class="collapse navbar-collapse" id="navbarNavDropDown">
+            <ul class="navbar-nav">
+                <li class="nav-item">@Html.ActionLink("Группы", "Index", "Groups", new { }, new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("Руководители", "Index", "Leaders", new { }, new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("Экзамены", "Index", "Exams", new { }, new { @class = "nav-link" })</li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - курсовая работа по базам данных Лобина Михаила.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

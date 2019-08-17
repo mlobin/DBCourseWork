@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DB2019Course.Models.Aspirant>
+
+@{
+    ViewBag.Title = "Аспиранты";
+}
+
+<h2>Аспиранты</h2>
+
+<p>
+    @if (ViewBag.Group != null)
+    {
+        @Html.ActionLink("Добавить", "Create", new { id = ViewBag.Group })
+    }
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.SurName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.JoinDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.OutDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.GroupId)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoinDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.Pass }) |
+                @Html.ActionLink("Подробнее", "Details", new { id = item.Pass }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Pass })
+            </td>
+        </tr>
+    }
+
+</table>
+@if (ViewBag.Group != null)
+{
+    @Html.ActionLink("К группе", "Details", "Groups", new { id = ViewBag.Group }, null)
+}
+else
+{
+    @Html.ActionLink("К руководителю", "Details", "Leaders", new { id = ViewBag.Leader }, null)
+}

@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="AuthorPass" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="AuthorPass" Type="int" Nullable="false" />
+    <Property Name="Journal" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Issue" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ISBN" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CoauthorPass" Type="int" />
+    <Property Name="Year" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aspirant">
+    <Key>
+      <PropertyRef Name="Pass" />
+    </Key>
+    <Property Name="Pass" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SurName" Type="nvarchar" MaxLength="20" />
+    <Property Name="JoinDate" Type="datetime" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="OutDate" Type="datetime" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Auth">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Defence">
+    <Key>
+      <PropertyRef Name="Number" />
+      <PropertyRef Name="AuthorPass" />
+      <PropertyRef Name="DisserId" />
+    </Key>
+    <Property Name="Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorPass" Type="int" Nullable="false" />
+    <Property Name="DisserId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Opponent" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Opponent2" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Result" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Organisation" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Building" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Auditory" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Disser">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="AuthorPass" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="AuthorPass" Type="int" Nullable="false" />
+    <Property Name="Nomenclature" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Readiness" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Auditory" Type="int" Nullable="false" />
+    <Property Name="Corp" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Teacher" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Faculty" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Stage" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Specialty" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IndPlan">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="AspirantId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AspirantId" Type="int" Nullable="false" />
+    <Property Name="WorkName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="DoneMarker" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Readiness" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Leader">
+    <Key>
+      <PropertyRef Name="PassId" />
+    </Key>
+    <Property Name="PassId" Type="int" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Degree" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="PassId" />
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="PassId" Type="int" Nullable="false" />
+    <Property Name="ExamId" Type="int" Nullable="false" />
+    <Property Name="Result" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DisserId" />
+      <PropertyRef Name="AuthorPass" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisserId" Type="int" Nullable="false" />
+    <Property Name="AuthorPass" Type="int" Nullable="false" />
+    <Property Name="ReviewAuthor" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Organisation" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="LeaderId" />
+      <PropertyRef Name="AspirantId" />
+    </Key>
+    <Property Name="LeaderId" Type="int" Nullable="false" />
+    <Property Name="AspirantId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Voting">
+    <Key>
+      <PropertyRef Name="VoteNumber" />
+    </Key>
+    <Property Name="VoteNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Members" Type="int" Nullable="false" />
+    <Property Name="Arrived" Type="int" Nullable="false" />
+    <Property Name="Pro" Type="int" Nullable="false" />
+    <Property Name="Contra" Type="int" Nullable="false" />
+    <Property Name="Not Voted" Type="int" Nullable="false" />
+    <Property Name="DisserId" Type="int" Nullable="false" />
+    <Property Name="AuthorPass" Type="int" Nullable="false" />
+    <Property Name="DefenceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Work">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="AuthorPass" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorPass" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Theme" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UDC" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Article_Leader">
+    <End Role="Leader" Type="Self.Leader" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leader">
+        <PropertyRef Name="PassId" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="CoauthorPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Article" Type="Self.Article" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="AuthorPass" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="AuthorPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aspirant_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="Aspirant" Type="Self.Aspirant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aspirant">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspLeader_Aspirant">
+    <End Role="Aspirant" Type="Self.Aspirant" Multiplicity="1" />
+    <End Role="Table" Type="Self.Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aspirant">
+        <PropertyRef Name="Pass" />
+      </Principal>
+      <Dependent Role="Table">
+        <PropertyRef Name="AspirantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspLeader_Leader">
+    <End Role="Leader" Type="Self.Leader" Multiplicity="1" />
+    <End Role="Table" Type="Self.Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leader">
+        <PropertyRef Name="PassId" />
+      </Principal>
+      <Dependent Role="Table">
+        <PropertyRef Name="LeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Defence_Disser">
+    <End Role="Disser" Type="Self.Disser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Defence" Type="Self.Defence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disser">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="AuthorPass" />
+      </Principal>
+      <Dependent Role="Defence">
+        <PropertyRef Name="DisserId" />
+        <PropertyRef Name="AuthorPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Disser_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Disser" Type="Self.Disser" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="AuthorPass" />
+      </Principal>
+      <Dependent Role="Disser">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="AuthorPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndPlan_Aspirant">
+    <End Role="Aspirant" Type="Self.Aspirant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IndPlan" Type="Self.IndPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aspirant">
+        <PropertyRef Name="Pass" />
+      </Principal>
+      <Dependent Role="IndPlan">
+        <PropertyRef Name="AspirantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Aspirant">
+    <End Role="Aspirant" Type="Self.Aspirant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aspirant">
+        <PropertyRef Name="Pass" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="PassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Exam">
+    <End Role="Exam" Type="Self.Exam" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="ExamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_Disser">
+    <End Role="Disser" Type="Self.Disser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disser">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="AuthorPass" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="DisserId" />
+        <PropertyRef Name="AuthorPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voting_Defence">
+    <End Role="Defence" Type="Self.Defence" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Voting" Type="Self.Voting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Defence">
+        <PropertyRef Name="Number" />
+        <PropertyRef Name="AuthorPass" />
+        <PropertyRef Name="DisserId" />
+      </Principal>
+      <Dependent Role="Voting">
+        <PropertyRef Name="DefenceId" />
+        <PropertyRef Name="AuthorPass" />
+        <PropertyRef Name="DisserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Work_Author">
+    <End Role="Aspirant" Type="Self.Aspirant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Work" Type="Self.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aspirant">
+        <PropertyRef Name="Pass" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="AuthorPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="JoinNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="table" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="num" Type="int" Mode="In" />
+    <Parameter Name="result" Type="nvarchar(max)" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aspirant" EntityType="Self.Aspirant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Auth" EntityType="Self.Auth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Defence" EntityType="Self.Defence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disser" EntityType="Self.Disser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndPlan" EntityType="Self.IndPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Leader" EntityType="Self.Leader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voting" EntityType="Self.Voting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Article_Leader" Association="Self.FK_Article_Leader">
+      <End Role="Leader" EntitySet="Leader" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Work" Association="Self.FK_Article_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aspirant_Group" Association="Self.FK_Aspirant_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Aspirant" EntitySet="Aspirant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspLeader_Aspirant" Association="Self.FK_AspLeader_Aspirant">
+      <End Role="Aspirant" EntitySet="Aspirant" />
+      <End Role="Table" EntitySet="Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspLeader_Leader" Association="Self.FK_AspLeader_Leader">
+      <End Role="Leader" EntitySet="Leader" />
+      <End Role="Table" EntitySet="Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Defence_Disser" Association="Self.FK_Defence_Disser">
+      <End Role="Disser" EntitySet="Disser" />
+      <End Role="Defence" EntitySet="Defence" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Disser_Work" Association="Self.FK_Disser_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="Disser" EntitySet="Disser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndPlan_Aspirant" Association="Self.FK_IndPlan_Aspirant">
+      <End Role="Aspirant" EntitySet="Aspirant" />
+      <End Role="IndPlan" EntitySet="IndPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Aspirant" Association="Self.FK_Result_Aspirant">
+      <End Role="Aspirant" EntitySet="Aspirant" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Exam" Association="Self.FK_Result_Exam">
+      <End Role="Exam" EntitySet="Exam" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_Disser" Association="Self.FK_Review_Disser">
+      <End Role="Disser" EntitySet="Disser" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voting_Defence" Association="Self.FK_Voting_Defence">
+      <End Role="Defence" EntitySet="Defence" />
+      <End Role="Voting" EntitySet="Voting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Work_Author" Association="Self.FK_Work_Author">
+      <End Role="Aspirant" EntitySet="Aspirant" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,46 @@
+﻿@model DB2019Course.Models.Result
+
+@{
+    ViewBag.Title = "Удалить оценку";
+}
+
+<h2>Удалить оценку</h2>
+
+<h3>Удалить оценку?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Result1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Result1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aspirant.Name)
+        </dt>
+
+        <dd>
+            @Html.ActionLink((string)@ViewBag.Aspirant, "Details", "Aspirants",new {id = Model.PassId }, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam.Subject)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class=".btn .btn-default" /> |
+            @Html.ActionLink("К списку оценок", "Index", new {id = Model.ExamId })
+        </div>
+    }
+</div>

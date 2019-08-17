@@ -1,0 +1,111 @@
+﻿@model DB2019Course.Models.Aspirant
+
+@{
+    ViewBag.Title = "Редактировать";
+}
+
+<h2>Редактировать</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Pass)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SurName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SurName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SurName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.JoinDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.JoinDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DisplayFor(model => model.JoinDate, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DisplayFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OutDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OutDate, new { htmlAttributes = new { @class = "form-control ", @Value = Model.OutDate.ToString("dd/MM/yyyy") } })
+            @Html.ValidationMessageFor(model => model.OutDate, "Неверный формат даты!", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="control-label col-md-2"><b>Группа</b></div>
+        <div class="col-md-10">
+
+            @Html.DropDownList("GroupId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <div class="col-md-offset-2 col-md-10">
+
+            @Html.ActionLink("Добавить руководителя", "News", "Leaders", new { id = Model.Pass }, new { @class = ".btn .btn-default" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class=".btn .btn-default" />
+        </div>
+    </div>
+</div>
+    }
+
+
+
+    <div>
+        @Html.ActionLink("Назад", "Index", new { id = Model.GroupId })|
+        @Html.ActionLink("Статьи", "Index", "Articles", new { id = Model.Pass }, null)|
+        @Html.ActionLink("Диссертация", "Index", "Disser", new { id = Model.Pass }, null)|
+        @Html.ActionLink("Руководители", "Aspi", "Leaders", new { id = Model.Pass }, null)|
+        @Html.ActionLink("Индивидуальный план", "Index", "IndPlans", new { id = Model.Pass }, null)|
+        @Html.ActionLink("Результаты экзаменов", "Index", "Exams", new { id = Model.Pass }, null)
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DB2019Course.Models.Defence>
+
+@{
+    ViewBag.Title = "Защиты";
+}
+
+<h2>Список защит</h2>
+
+<p>
+    @Html.ActionLink("Добавить", "Create", new {id = ViewBag.AuthorPass })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Disser.Work.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opponent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opponent2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Organisation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Building)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auditory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Disser.Work.Name, "Index", "Dissers",new {id = item.Disser.AuthorPass }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opponent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opponent2)
+        </td>
+        <td>
+            @Html.ActionLink(item.Result,"Index","Votings",new {id = item.Number, author = item.AuthorPass }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organisation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Building)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auditory)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { author = ViewBag.AuthorPass, id = item.Number }) |
+            @Html.ActionLink("Подробнее", "Details", new { author = ViewBag.AuthorPass, id = item.Number }) |
+            @Html.ActionLink("Удалить", "Delete", new { author = ViewBag.AuthorPass, id = item.Number })
+        </td>
+    </tr>
+}
+
+</table>

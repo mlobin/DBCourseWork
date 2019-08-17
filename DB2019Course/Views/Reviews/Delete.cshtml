@@ -1,0 +1,38 @@
+﻿@model DB2019Course.Models.Review
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Удалить отзыв?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class=".btn .btn-default" /> |
+            @Html.ActionLink("К списку", "Index", new {id = Model.AuthorPass })
+        </div>
+    }
+</div>

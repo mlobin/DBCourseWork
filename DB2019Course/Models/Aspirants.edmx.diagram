@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="425f8007bde741c89437e13889abdae5" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="Model.Article" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Aspirant" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Auth" Width="1.5" PointX="3.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Defence" Width="1.5" PointX="9.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Disser" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Exam" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Group" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IndPlan" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Leader" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Result" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Review" Width="1.5" PointX="9.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Voting" Width="1.5" PointX="12" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Work" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Article_Leader" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Article_Work" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Aspirant_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_IndPlan_Aspirant" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Result_Aspirant" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Work_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Defence_Disser" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Voting_Defence" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Disser_Work" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Review_Disser" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Result_Exam" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Table" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Logged" Width="1.5" PointX="7.25" PointY="4.125" />
+        <AssociationConnector Association="Model.FK_Logged_Auth" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

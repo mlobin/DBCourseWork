@@ -1,0 +1,96 @@
+﻿@model DB2019Course.Models.Defence
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Удалить это?</h3>
+<div>
+    <h4>Защита</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opponent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opponent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opponent2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opponent2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Result)
+        </dt>
+
+        <dd>
+            @Html.ActionLink(Model.Result, "Details", "Votings", new { id = Model.Number, author = Model.AuthorPass }, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Building)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auditory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auditory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disser.Nomenclature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disser.Nomenclature)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class=".btn .btn-default" /> |
+            @Html.ActionLink("К списку", "Index", new {id = Model.AuthorPass })
+        </div>
+    }
+</div>
